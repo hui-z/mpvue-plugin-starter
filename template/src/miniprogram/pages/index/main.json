@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "greeting": "plugin://{{pluginName}}/greeting"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "mpvue-plugin-template",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Use mpvue develop wechat miniprogram plugin!",
+  "scripts": {},
+  "devDependencies": {
+    "vue-cli": "^2.8.1"
+  }
+}
