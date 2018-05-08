@@ -51,7 +51,8 @@ const devWebpackConfig = {
   },
   plugins: [
     new WriteFilePlugin({
-      force: true
+      force: true,
+      useHashIndex: false
     }),
     new webpack.DefinePlugin({
       'process.env': require('../config/dev.env')
