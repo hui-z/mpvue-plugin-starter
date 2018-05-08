@@ -76,10 +76,7 @@ const devWebpackConfig = {
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
-      chunks: ['vendor'],
-      minChunks () {
-        return true
-      }
+      chunks: ['vendor']
     }),
     // copy custom static assets
     new CopyWebpackPlugin([

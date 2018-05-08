@@ -1,7 +1,8 @@
 const path = require('path')
-const config = require('../config')
-const MpvueExtraPlugin = require('webpack-mpvue-extra-plugin/miniprogram')
 const glob = require('glob')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const MpvueExtraPlugin = require('webpack-mpvue-extra-plugin/miniprogram')
+const config = require('../config')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -18,6 +19,7 @@ function getEntry (rootSrc, pattern) {
 }
 
 const miniprogramRoot = path.resolve('src', 'miniprogram')
+const miniprogramOutput = path.join(config.build.assetsRoot, 'miniprogram')
 
 const appEntry = { app: path.join(miniprogramRoot, 'main.js') }
 const pagesEntry = getEntry(miniprogramRoot, 'pages/**/main.js')
@@ -27,7 +29,7 @@ module.exports = {
   context: miniprogramRoot,
   entry,
   output: {
-    path: path.join(config.build.assetsRoot, 'miniprogram'),
+    path: miniprogramOutput,
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
@@ -41,6 +43,7 @@ module.exports = {
     symlinks: false
   },
   plugins: [
+    new CleanWebpackPlugin([miniprogramOutput]),
     new MpvueExtraPlugin()
   ]
 }
