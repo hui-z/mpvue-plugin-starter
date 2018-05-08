@@ -43,7 +43,7 @@ module.exports = {
     symlinks: false
   },
   plugins: [
-    new CleanWebpackPlugin([miniprogramOutput]),
+    new CleanWebpackPlugin([miniprogramOutput], { allowExternal: true }),
     new MpvueExtraPlugin()
   ]
 }

@@ -24,7 +24,7 @@ module.exports = {
     symlinks: false
   },
   plugins: [
-    new CleanWebpackPlugin([pluginOutput]),
+    new CleanWebpackPlugin([pluginOutput], { allowExternal: true }),
     new MpvueExtraPlugin()
   ]
 }
